@@ -16,3 +16,4 @@ typedef struct _format
         char type;
         int (*f)(va_list);
 } format;
+{'c', print_char()};
