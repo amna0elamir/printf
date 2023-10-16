@@ -6,7 +6,7 @@
 #include <unistd.h>
 int _printf(const char *format, ...);
 /**
- * struct _format - Typedef struct
+ * struct format - Typedef struct
  *
  * @type: Format
  * @f: The function associated
@@ -16,4 +16,4 @@ typedef struct format_specifier
         char type;
         int (*f)(va_list);
 } format;
-
+#endif
