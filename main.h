@@ -5,15 +5,7 @@
 #include <string.h>
 #include <unistd.h>
 int _printf(const char *format, ...);
-/**
- * struct format - Typedef struct
- *
- * @type: Format
- * @f: The function associated
- */
-typedef struct format_specifier
-{
-        char type;
-        int (*f)(va_list);
-} format;
+int print_char(va_list);
+int print_string(va_list);
+int print_integer(va_list);
 #endif
