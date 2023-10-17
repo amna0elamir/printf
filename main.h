@@ -5,7 +5,8 @@
 #include <string.h>
 #include <unistd.h>
 int _printf(const char *format, ...);
-int print_char(va_list);
-int print_string(va_list);
-int print_integer(va_list);
+int printing_char(va_list);
+int printing_string(va_list);
+int printing_integer(va_list);
+int _putchar(char c);
 #endif
