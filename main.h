@@ -4,15 +4,9 @@
 #include <stdarg.h>
 #include <string.h>
 #include <unistd.h>
-
-/**
- * struct _format - Typedef struct
- *
- * @type: Format
- * @f: The function associated
- */
-typedef struct _format
-{
-        char type;
-        int (*f)(va_list);
-} format;
+int _printf(const char *format, ...);
+int printing_char(va_list);
+int printing_string(va_list);
+int printing_integer(va_list);
+int _putchar(char c);
+#endif
