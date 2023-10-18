@@ -7,6 +7,6 @@
 int _printf(const char *format, ...);
 int printing_char(va_list);
 int printing_string(va_list);
-int printing_percentage(va_list);
+int printing_percentage(Unused va_list);
 int _putchar(char c);
 #endif
