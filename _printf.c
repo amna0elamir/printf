@@ -13,25 +13,29 @@ int _printf(char *format, ...)
 	
 	while (*format)
 	{
-	if (*format == '%')
-	format++;
-	if (*format == '%')
-	{
-	count += printing_percentage();
+		if (*format == '%')
+		{
+			format++;
+			if (*format == '%')
+			{
+				count += printing_percentage();
+			}
+			else if (*format == 'c')
+			{		
+				count += printing_char(va_list);
+			}
+			else if (*format == 's')
+			{
+				count += printing_string(va_list);
+			}	
+		}
+		else
+		{
+			count += _putchar(*format);
+			format++;
+		}
 	}
-	else if (*format == 'c')
-	{
-	count += printing_char(args);
-	}
-	else if (*format == 's')
-	{
-	count += printing_string(args);
-	}
-	}
-	else
-	count += putchar(*format);
-	format++;
-}
 va_end(args);
 return (count);
+}
 }
