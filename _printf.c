@@ -10,21 +10,40 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
+<<<<<<< HEAD
 
 	count = 0;
 
 	if  (*format)
+=======
+	int count = 0;
+	
+	while (*format)
+>>>>>>> 9e53da6ed678647bf4c35bfa8e6d9e46f1cd5065
 	{
-	if (*format == '%')
-	format++;
-	if (*format == '%')
-	{
-	count += printing_percentage();
+		if (*format == '%')
+		{
+			format++;
+			if (*format == '%')
+			{
+				count += printing_percentage();
+			}
+			else if (*format == 'c')
+			{		
+				count += printing_char(va_list);
+			}
+			else if (*format == 's')
+			{
+				count += printing_string(va_list);
+			}	
+		}
+		else
+		{
+			count += _putchar(*format);
+			format++;
+		}
 	}
-	else if (*format == 'c')
-	{
-	count += printing_char(args);
-	}
+<<<<<<< HEAD
 	else  if(*format == 's')
 	{
 	count += printing_string(args);
@@ -36,5 +55,8 @@ int _printf(const char *format, ...)
 }
 va_end (int args);
 
+=======
+va_end(args);
+>>>>>>> 9e53da6ed678647bf4c35bfa8e6d9e46f1cd5065
 return (count);
 }
