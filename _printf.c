@@ -7,8 +7,10 @@
 int _printf(char *format, ...)
 {
 	va_list args;
-	va_start (args, format);
+
+	va_start(args, format);
 	int count;
+
 	count = 0;
 
 	while (*format)
@@ -23,15 +25,15 @@ int _printf(char *format, ...)
 	{
 	count += printing_char(args);
 	}
-	else (*format == 's')
+	else if (*format == 's')
 	{
 	count += printing_string(args);
 	}
 	}
-	else 
+	else
 	count += putchar(*format);
 	format++;
 }
 va_end(args);
 return (count);
-}		
+}
