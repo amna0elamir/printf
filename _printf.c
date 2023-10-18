@@ -10,16 +10,8 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-<<<<<<< HEAD
-
 	count = 0;
-
-	if  (*format)
-=======
-	int count = 0;
-	
 	while (*format)
->>>>>>> 9e53da6ed678647bf4c35bfa8e6d9e46f1cd5065
 	{
 		if (*format == '%')
 		{
@@ -39,24 +31,10 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			count += _putchar(*format);
+			count += printing_string(*format);
 			format++;
 		}
 	}
-<<<<<<< HEAD
-	else  if(*format == 's')
-	{
-	count += printing_string(args);
-	}
-	}
-	else
-	count += putchar(*format);
-	format++;
-}
-va_end (int args);
-
-=======
-va_end(args);
->>>>>>> 9e53da6ed678647bf4c35bfa8e6d9e46f1cd5065
-return (count);
+	va_end(args);
+	return (count);
 }
