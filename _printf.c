@@ -38,4 +38,3 @@ int _printf(char *format, ...)
 va_end(args);
 return (count);
 }
-}
