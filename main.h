@@ -5,8 +5,7 @@
 #include <string.h>
 #include <unistd.h>
 int _printf(const char *format, ...);
-int printing_char(va_list);
-int printing_string(va_list);
-int printing_percentage(Unused va_list);
+int format_conversion(va_list var, const char *format, int count);
 int _putchar(char c);
+int _strlen(char *s);
 #endif
