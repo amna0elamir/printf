@@ -37,7 +37,7 @@ int _strlen(char *s)
  *
  * Return: no of printed
  */
-int format_conversion(va_list var,const char *format, int count)
+int format_conversion(va_list var, const char *format, int count)
 {
 	int conv, ch;
 	char *s;
