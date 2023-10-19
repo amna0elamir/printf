@@ -13,84 +13,57 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 
-/****** printing_char******/
-
+/********_strlen**********/
 /**
- * printing_char - function to print character
- * @args: list args
+ * _strlen - func that returned the lenght of string
+ * @s: input string
  *
- * Return: 1
+ * Return: len
  */
-int printing_char(va_list args)
+int _strlen(char *s)
 {
-	int c;
-
-	c = va_arg(args, int);
-	_putchar(c);
-	return (1);
-}
-
-/*********Printing_string******/
-
-/**
- * printing_string - func that print strings
- * @args: list of arg
- *
- * Return: count of printed string
-*/
-int printing_string(va_list args)
-{
-	char *s;
 	int i;
 
-	s = va_arg(args, char*);
-	if (s == NULL)
-		return (-1);
 	for (i = 0; s[i] != '\0'; ++i)
-	{
-		_putchar(s[i]);
-		i++;
-	}
+		;
 	return (i);
 }
-
-/*******Printing_integer.c******/
+/****format_conversion********/
 /**
- * printing_integer - func to print integer in base of 10
- * @args: list of arg
+ * format_conversion - func for format specifier
+ * @var: variadic arg
+ * @format: input string
+ * @count: counter
  *
- * Return: count of number print
+ * Return: no of printed
  */
-int printing_integer(va_list args)
+int format_conversion(va_list var, const char *format, int count)
 {
-	int num, count = 0;
+	int conv;
+	char *s;
 
-	num = va_arg(args, int);
-
-	if (num < 0)
+	conv = count;
+	switch (*format)
 	{
-	_putchar('-');
-	num = -num;
-	count++;
+		case 'c':
+			conv = _putchar(va_arg(var, int));
+			format++;
+			break;
+		case 's':
+			s = va_arg(var, char *);
+			while (*s)
+			{
+				conv = _putchar(*s);
+				s++;
+			}
+			break;
+		case '%':
+			conv = putchar('%');
+			format++;
+			break;
+		default:
+			/*conv = other_conversion(var, format, count);*/
+			break;
 	}
-	if (num / 10)
-	{
-	count += printing_integer(args);
-	count++;
-	}
-	_putchar((num % 10) + '0');
-	count++;
-	return (count);
-}
-
-/*****Percentage*****/
-/**
- * printing_percentage - func that print %
- * @args: list of args
- *
- * Return: count of printed
- */
-int printing_percentage(va_list args)
-{
-	return (_putchar('%'));
+	return (conv);
 }
