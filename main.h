@@ -4,6 +4,7 @@
 #include <stdarg.h>
 #include <string.h>
 #include <unistd.h>
+#include <limits.h>
 int _printf(const char *format, ...);
 int format_conversion(va_list var, const char *format, int count);
 int _putchar(char c);
