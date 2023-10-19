@@ -37,17 +37,17 @@ int _strlen(char *s)
  *
  * Return: no of printed
  */
-int format_conversion(va_list var, const char *format, int count)
+int format_conversion(va_list var,const char *format, int count)
 {
-	int conv;
+	int conv, ch;
 	char *s;
 
 	conv = count;
 	switch (*format)
 	{
 		case 'c':
-			conv = _putchar(va_arg(var, int));
-			format++;
+			ch = (va_arg(var, int));
+			conv = _putchar(ch);
 			break;
 		case 's':
 			s = va_arg(var, char *);
@@ -55,11 +55,11 @@ int format_conversion(va_list var, const char *format, int count)
 			{
 				conv = _putchar(*s);
 				s++;
+				conv++;
 			}
 			break;
 		case '%':
-			conv = putchar('%');
-			format++;
+			conv = _putchar('%');
 			break;
 		default:
 			/*conv = other_conversion(var, format, count);*/

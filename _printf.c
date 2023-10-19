@@ -17,11 +17,12 @@ int _printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			count = format_conversion(var, format + 1, count);
+			format++;
+			count = format_conversion(var, format, count);
 		}
 		else
 		{
-			count = putchar(*format);
+			count = _putchar(*format);
 		}
 	}
 	return (count);
