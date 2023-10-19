@@ -51,8 +51,11 @@ int format_conversion(va_list var, const char *format, int count)
 			break;
 		case 's':
 			s = va_arg(var, char *);
-			conv = _putchar(*s);
-			format++;
+			while (*s)
+			{
+				conv = _putchar(*s);
+				s++;
+			}
 			break;
 		case '%':
 			conv = putchar('%');
