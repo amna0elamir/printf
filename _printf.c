@@ -7,8 +7,9 @@
 */
 int _printf(const char *format, ...)
 {
-	int count;
+	int buffer_id = count = p_count = 0;
 	va_list var;
+	char buffer[BUFF_SIZE];
 
 	va_start(var, format);
 	if ((format == NULL) || (strlen(format) == 0))
@@ -18,11 +19,17 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			count = format_conversion(var, format, count);
+			count = format_conversion(var, format, count, buffer);
 		}
 		else
 		{
-			count = _putchar(*format);
+			buffer[buffer_id] = *format;
+			if (buffer_id == BUFF_SIZE)
+			{
+				printbuffer(buffer, &buffer_id);
+				count += buffer_id;
+			}
+
 		}
 	}
 	return (count);
